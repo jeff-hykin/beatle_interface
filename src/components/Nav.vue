@@ -26,8 +26,8 @@ export default {
                 location: '/'
             },
             {
-                name: 'About',
-                location: '/about'
+                name: 'Help',
+                location: '/help'
             },
         ]
     })
