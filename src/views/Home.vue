@@ -9,9 +9,9 @@
             </column>
         </row>
         <!-- Projects -->
-        <row class=content-container align-h=left :wrap=true width=100vw margin=2rem>
+        <!-- <row class=content-container align-h=left :wrap=true width=100vw margin=2rem>
             Main Area
-        </row>
+        </row> -->
     </column>
 </template>
 <script>
