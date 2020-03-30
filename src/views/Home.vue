@@ -9,14 +9,25 @@
             </column>
         </row>
         <!-- Projects -->
-        <!-- <row class=content-container align-h=left :wrap=true width=100vw margin=2rem>
-            Main Area
-        </row> -->
+        <row class=content-container width=100vw margin=2rem>
+            <ui-button color='primary' @click="toggleStatus">
+                Toggle Arm/Disarm
+            </ui-button>
+        </row>
     </column>
 </template>
 <script>
     export default {
         components: {},
+        methods: {
+            toggleStatus() {
+                if (this.$root.$data.status == "disarmed") {
+                    this.$root.$data.status = "armed"
+                } else {
+                    this.$root.$data.status = "disarmed"
+                }
+            }
+        }
     }
 </script>
 <style lang="scss" scoped>
