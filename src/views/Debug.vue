@@ -1,6 +1,6 @@
 <template>
     <column>
-            <ui-button raised :size="size">Toggle Light</ui-button>
+            <ui-button raised>Toggle Light</ui-button>
     </column>
 </template>
 

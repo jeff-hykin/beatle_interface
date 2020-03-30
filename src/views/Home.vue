@@ -14,17 +14,23 @@
                 Toggle Arm/Disarm
             </ui-button>
         </row>
+        <column position=fixed left=0 bottom=0 width=100vw padding=1rem align-h=left color="white" :background-color='status=="disarmed"?"var(--blue-400)" : "var(--red-500)" '  >
+            status: {{status}}
+        </column>
     </column>
 </template>
 <script>
     export default {
         components: {},
+        data:()=>({
+           status 
+        }),
         methods: {
             toggleStatus() {
-                if (this.$root.$data.status == "disarmed") {
-                    this.$root.$data.status = "armed"
+                if (this.status == "disarmed") {
+                    this.status = "armed"
                 } else {
-                    this.$root.$data.status = "disarmed"
+                    this.status = "disarmed"
                 }
             }
         }
