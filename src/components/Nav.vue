@@ -29,6 +29,10 @@ export default {
                 name: 'Help',
                 location: '/help'
             },
+            {
+                name: 'Debug',
+                location: '/debug'
+            },
         ]
     })
 }
