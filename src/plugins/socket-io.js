@@ -21,7 +21,9 @@ socket.on("dataDidChange", (backendSystemData) => {
     // 
     // update systemData from backend
     // 
-    window.$root.systemData = backendSystemData
+    if (Object.keys(backendSystemData).length > 0) {
+        window.$root.systemData = backendSystemData
+    }
     // changes were just confirmed
     window.$root.changesAreUnconfirmed = false    
 })
@@ -30,7 +32,9 @@ socket.on("dataDidChange", (backendSystemData) => {
 socket.on("providingSystemData", (backendSystemData) => {
     console.log(`receiving backend data: `,backendSystemData)
     // make sure frontend is up to date
-    window.$root.systemData = backendSystemData
+    if (Object.keys(backendSystemData).length > 0) {
+        window.$root.systemData = backendSystemData
+    }
     // changes were just confirmed
     window.$root.changesAreUnconfirmed = false    
 })

@@ -18,7 +18,6 @@ Vue.config.productionTip = false
 
 
 // allow global access to root from non-vue files
-window.systemData = {}
 window.Vue = Vue
 new Vue({
     components: {
