@@ -4,35 +4,24 @@
         <transition name="fade" mode="out-in" >
             <router-view/>
         </transition>
+        <column position=fixed left=0 bottom=0 width=100vw padding=1rem align-h=left color="white" :background-color='$root.systemData.status=="disarmed"?"var(--blue-400)" : "var(--red-500)" '  >
+            status: {{$root.systemData.status}}
+        </column>
     </div>
 </template>
 
 <script>
 
 import Nav from '@/components/Nav.vue'
+import router from "./router"
 
-export let app = {
+export default {
   name: 'App',
-  data: ()=>({
-      status: "disarmed",
-  }),
+  router,
   components: {
     Nav
   },
-  mounted() {
-      console.log(`jhio`)
-    window.addEventListener("toggleArmed", ()=> {
-        console.log(`toggleArmed event `)
-        this.status = this.status
-    })
-  },
-  watch: {
-      status(value) {
-          console.log(`value is:`,value)
-      }
-  }
 }
-export default app
 </script>
 
 <style lang="scss">
