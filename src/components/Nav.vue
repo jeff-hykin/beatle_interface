@@ -22,8 +22,8 @@ export default {
     data: ()=> ({
         pages: [
             {
-                name: 'Home',
-                location: '/'
+                name: 'home',
+                location: '/Home'
             },
             {
                 name: 'Help',
@@ -33,6 +33,8 @@ export default {
                 name: 'Debug',
                 location: '/debug'
             },
+             
+
         ]
     })
 }

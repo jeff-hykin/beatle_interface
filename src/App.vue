@@ -1,27 +1,55 @@
 <template>
     <div id="app">
-        <Nav />
-        <transition name="fade" mode="out-in" >
+    <router-link v-if="authenticated" to="/login" v-on:click.native="logout()" replace>Logout</router-link>
+        <Nav v-if="authenticated"/>
+            <transition name="fade" mode="out-in" >
+        <router-view @authenticated="setAuthenticated" />
             <router-view/>
+           
         </transition>
-        <column position=fixed left=0 bottom=0 width=100vw padding=1rem align-h=left color="white" :background-color='$root.systemData.status=="disarmed"?"var(--blue-400)" : "var(--red-500)" '  >
-            status: {{$root.systemData.status}}
-        </column>
     </div>
 </template>
 
 <script>
 
 import Nav from '@/components/Nav.vue'
-import router from "./router"
 
-export default {
+export let app = {
   name: 'App',
-  router,
+  data: ()=>({
+      status: "disarmed",
+      authenticated:false,
+      mockAccount:{
+          username: "omar",
+          password: "password"
+      }
+  }),
   components: {
     Nav
   },
+  mounted() {
+      console.log(`jhio`)
+    window.addEventListener("toggleArmed", ()=> {
+        console.log(`toggleArmed event `)
+        this.status = this.status
+    })
+  },
+  watch: {
+      status(value) {
+          console.log(`value is:`,value)
+      }
+  },
+
+  methods: {
+      setAuthenticated(status) {
+          this.authenticated=status;
+      },
+      logout(){
+          this.authenticated=false;
+      }
+  }
 }
+export default app
 </script>
 
 <style lang="scss">
